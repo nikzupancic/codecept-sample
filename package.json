@@ -1,0 +1,17 @@
+{
+  "name": "codeceptpoc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "codeceptjs": "^3.5.4",
+    "ts-retry-promise": "^0.7.1",
+    "webdriverio": "^8.16.11"
+  }
+}
