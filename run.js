@@ -21,15 +21,16 @@ const config = {
             browser: 'Chrome',
             platform: 'Android',
             desiredCapabilities: {
-                    build: 'test-scripting',
-                    acceptSslCert: true,
-                    'browserstack.networkLogs': true,
-                    'browserstack.user': BROWSERSTACK_USERNAME,
-                    'browserstack.key': BROWSERSTACK_KEY,
-                    os_version: '13.0',
-                    device: 'Samsung Galaxy S23',
-                    platform: 'Android',
-                    'browserstack.local': false,
+                'bstack:options': {
+                    buildName: 'test-scripting',
+                    acceptInsecureCerts: true,
+                    networkLogs: true,
+                    userName: BROWSERSTACK_USERNAME,
+                    accessKey: BROWSERSTACK_KEY,
+                    deviceName: 'iPhone 14',
+                    osVersion: '16',
+                    safariAllowPopups: true
+                }
             }
         }
     }
