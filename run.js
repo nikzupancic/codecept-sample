@@ -18,8 +18,8 @@ const config = {
             host: 'hub-cloud.browserstack.com',
             port: 4444,
             waitForTimeout: 5000,
-            browser: 'Chrome',
-            platform: 'Android',
+            browser: 'Safari',
+            platform: 'iOS',
             desiredCapabilities: {
                 'bstack:options': {
                     buildName: 'test-scripting',
