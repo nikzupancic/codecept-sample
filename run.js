@@ -1,42 +1,43 @@
 const { Codecept } = require('codeceptjs')
-
+const path = require('path')
 
 const BROWSERSTACK_USERNAME = ''
 const BROWSERSTACK_KEY = ''
+
+
 const config = {
     platformDomain: 'adcat.test',
-    tests: __dirname + 'test.js',
-    output: './output',
+    tests: path.join(__dirname, '*Test.js'),
+    output: '/tmp/output',
     bootstrap: () => {},
     teardown: () => {},
     mocha: {},
     plugins: {},
     helpers: {
-        WebDriver: {
-            url: 'https://test.celtra.com',
+        Appium: {
+            appiumV2: true,
+            app: 'bs://da69ab6f053aed844d2969c284294e9724946980',
             restart: false,
             host: 'hub-cloud.browserstack.com',
             port: 4444,
             waitForTimeout: 5000,
-            browser: 'Chrome',
+            user: BROWSERSTACK_USERNAME,
+            key: BROWSERSTACK_KEY,
             platform: 'Android',
             desiredCapabilities: {
-                    build: 'test-scripting',
-                    acceptSslCert: true,
-                    'browserstack.networkLogs': true,
-                    'browserstack.user': BROWSERSTACK_USERNAME,
-                    'browserstack.key': BROWSERSTACK_KEY,
-                    os_version: '13.0',
-                    device: 'Samsung Galaxy S23',
-                    platform: 'Android',
-                    'browserstack.local': false,
+                buildName: 'nik-testing',
+                'browserstack.acceptInsecureCerts': true,
+                'browserstack.networkLogs': true,
+                'browserstack.networkLogsExcludeHosts': ['googleads.g.doubleclick.net', 'pubads.g.doubleclick.net', 'securepubads.g.doubleclick.net'],
+                platformName: 'Android',
+                osVersion: '13.0',
+                deviceName: 'Samsung Galaxy S23',
             }
         }
     }
 }
 
-
-  const codecept = new Codecept(config, { steps: true, verbose: true })
-  codecept.init(__dirname)
-  codecept.loadTests(__dirname + '/webTest.js')
-  codecept.run().then(() => console.log('Done'))
+const codecept = new Codecept(config, { steps: true, verbose: true })
+codecept.init(__dirname)
+codecept.loadTests(__dirname + '/appTest.js')
+codecept.run().then(() => console.log('Done'))
