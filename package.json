@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "codeceptjs": "^3.5.4",
+    "codeceptjs": "3.5.11",
     "ts-retry-promise": "^0.7.1",
-    "webdriverio": "^8.16.11"
+    "webdriverio": "8.15.10"
   }
 }
