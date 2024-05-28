@@ -21,15 +21,30 @@ const config = {
             browser: 'Chrome',
             platform: 'Android',
             desiredCapabilities: {
-                    build: 'test-scripting',
-                    acceptSslCert: true,
-                    'browserstack.networkLogs': true,
-                    'browserstack.user': BROWSERSTACK_USERNAME,
-                    'browserstack.key': BROWSERSTACK_KEY,
-                    os_version: '13.0',
-                    device: 'Samsung Galaxy S23',
-                    platform: 'Android',
-                    'browserstack.local': false,
+                'bstack:options': {
+                    buildName: 'test-scripting',
+                    acceptInsecureCerts: true,
+                    networkLogs: true,
+                    userName: BROWSERSTACK_USERNAME,
+                    accessKey: BROWSERSTACK_KEY,
+                    osVersion: '13.0',
+                    deviceName: 'Samsung Galaxy S23',
+                    local: false,
+                }
+                // When running Appium instead of WebDriver use following capabilities for W3C:
+                // buildName: 'test-scripting',
+                // 'browserstack.acceptInsecureCerts': true,
+                // 'browserstack.networkLogs': true,
+                // 'browserstack.userName': BROWSERSTACK_USERNAME,
+                // 'browserstack.accessKey': BROWSERSTACK_KEY,
+                // 'browserstack.networkLogsExcludeHosts': [
+                //     'googleads.g.doubleclick.net',
+                //     'pubads.g.doubleclick.net',
+                //     'securepubads.g.doubleclick.net'
+                // ],
+                // osVersion: '13.0',
+                // platformName: 'Android',
+                // deviceName: 'Samsung Galaxy S23'
             }
         }
     }
