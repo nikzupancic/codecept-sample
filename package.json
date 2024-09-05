@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "codeceptjs": "3.5.11",
+    "pixelmatch": "^6.0.0",
+    "sharp": "^0.33.5",
     "ts-retry-promise": "^0.7.1",
     "webdriverio": "8.15.10"
   }

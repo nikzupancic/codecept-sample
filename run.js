@@ -12,6 +12,9 @@ const config = {
     mocha: {},
     plugins: {},
     helpers: {
+        screenshotHelper: {
+            require: './screenshotHelper.js'
+        },
         WebDriver: {
             url: 'https://test.celtra.com',
             restart: false,
