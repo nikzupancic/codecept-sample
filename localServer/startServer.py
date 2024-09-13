@@ -13,10 +13,9 @@ Handler = http.server.SimpleHTTPRequestHandler
 httpd = socketserver.TCPServer((f'{DOMAIN}', PORT), Handler)
 
 # Wrap the server with SSL, using the generated certificate and private key
-httpd.socket = ssl.wrap_socket(httpd.socket,
-                               keyfile="server.pem",  # Path to the key file
-                               certfile="server.pem",  # Path to the certificate file
-                               server_side=True)
+ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)  # Use TLS context for server
+ssl_context.load_cert_chain(certfile="server.pem", keyfile="server.pem")  # Load cert and key
+httpd.socket = ssl_context.wrap_socket(httpd.socket, server_side=True)
 
 print(f"Serving on https://{DOMAIN}:{PORT}")
 httpd.serve_forever()
