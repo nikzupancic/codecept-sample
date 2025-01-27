@@ -1,6 +1,7 @@
 How to use:
 - Clone the repository
 - Change working directory to root folder and run `npm install`
-- Add your browserstack credentials at the top of `run.js` file
-- Modify `webTes.js` if needed
-- Run the test using command `node run.js`
+- Copy `.env.sample` file to `.env` and enter your credentials
+- Modify Codecept config in `run.js` depending on which tests you want to run
+- Change `test.js` file as required
+- Run the test using command `node --env-file .env run.js`
